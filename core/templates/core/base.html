@@ -23,8 +23,14 @@
                 <li class="nav-item">
                   <a class="nav-link" href="#">Browse</a>
                 </li>
+                {% if  request.user.is_authenticated%}
+                <a class="btn btn-outline-success mx-2" href="#" role="button">Inbox</a>
+                <a class="btn btn-outline-secondary" href="" role="button">Dashboard</a>
+                {% else %}
                 <a class="btn btn-outline-success mx-2" href="{% url "core:signup" %}" role="button">Sign up</a>
-                <a class="btn btn-outline-secondary" href="#" role="button">Login</a>
+                <a class="btn btn-outline-secondary" href="{% url "core:login" %}" role="button">Login</a>
+                {% endif %}
+                
   
                 
               </ul>
